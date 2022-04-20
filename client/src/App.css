@@ -1,0 +1,6 @@
+.App {
+  background: url(./images/bcg.png);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

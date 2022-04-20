@@ -1,0 +1,21 @@
+.trainer__pokemons {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+@media(min-width: 421px) {
+    /* .trainer__pokemons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }    */
+}
+
+@media(min-width: 421px) {
+    .trainer__pokemons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }   
+}

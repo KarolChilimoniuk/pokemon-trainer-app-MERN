@@ -1,0 +1,47 @@
+.paragraph {
+    color: rgb(255,255,255);
+    margin: 0;
+    margin-right: 40px;
+}
+
+.user__link {
+    color: rgb(0,255,150);
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.user__link:hover {
+    color: rgb(255,0,0);
+}
+
+.link__container, .scrolled__container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    position: fixed;
+    transition: background-color, 0.5s, 0.5s;
+    width: 100%;
+    z-index: 2;
+}
+
+.scrolled__container {
+    background-color: rgba(0,0,0,0.3);
+}
+
+.link {
+    color: rgb(255,255,255);
+    margin-right: 40px;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: rgb(0,0,0);
+}
+
+.image {
+    height: 20px;
+    margin-left: 40px;
+    margin-right: 10px;
+}

@@ -1,0 +1,26 @@
+.mainImage__container {
+    /* background-color: rgb(255,255,255); */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 40px;
+    width: 100vw;
+    height: 50vh;
+}
+
+.mainImage {
+    width: 280px;
+    height: 280px;
+    transition: transform 1s
+}
+
+.mainImage:hover {
+    transform: rotateY(180deg);
+}
+
+@media (min-width: 1024px) {
+    .mainImage {
+        width: 350px;
+        height: 350px;
+    }
+}

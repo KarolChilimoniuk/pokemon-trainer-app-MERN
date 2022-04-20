@@ -1,0 +1,93 @@
+.addPokemonModal__hidden {
+    display: none;
+}
+
+.addPokemonModal__visible {
+    align-items: center;
+    background-color: rgba(0,0,0,0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 90%;
+    min-height: 100vh;
+    min-width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.addPokemonModal__form {
+    background-color: rgba(150,150,150,0.7);
+    display: flex;
+    flex-direction: column;
+    min-height: 193px;
+    padding: 15px;
+    position: absolute;
+    width: 90%;
+    max-width: 300px;
+}
+
+.addPokemonModal__img {
+    align-self: flex-end;
+    cursor: pointer;
+    height: 35px;
+    position: relative;
+    right: 10px;
+    top: 10px;
+    width: 35px;
+}
+
+.addPokemonModal__inputContainer {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.addPokemonModal__textInput {
+    background-color: rgba(150,150,150,0.9);
+    border-radius: 5px;
+    border-width: 0;
+    color: rgb(0,0,0);
+    height: 30px;
+    margin-top: 10px;
+    width: 185px;
+}
+
+.addPokemonModal__textInput::placeholder {
+    color: rgb(0,0,0);
+    padding-left: 10px;
+}
+
+.addPokemonModal__submitInput {
+    align-self: flex-start;
+    background-color: rgba(0,0,0,0.7);
+    border-width: 0;
+    border-radius: 5px;
+    color: rgb(255,255,255);
+    cursor: pointer;
+    font-weight: 700;
+    height: 40px;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.addPokemonModal__submitInput:active {
+    background-color: rgba(255,255,255,0.3);
+    color: rgb(0,0,0);
+}
+
+@media(max-width: 400px) {
+    .addPokemonModal__form {
+        /* height: 70%; */
+        width: 70%;
+    }
+}
+
+@media(min-width: 1100px) {
+    .addPokemonModal__form {
+        max-height: 80%;
+    }
+}
+
+

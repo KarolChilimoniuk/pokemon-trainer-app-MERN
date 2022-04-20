@@ -1,0 +1,125 @@
+
+.nav__container {
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+@media (min-width: 0px){
+    .mobile {
+        align-content: center;
+        background-color: rgba(0,0,0,0.7);
+        clip-path: polygon(0% 0%, 54% 0, 100% 26%, 65% 100%, 0% 100%);
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: flex-start;
+        top: 0px;
+        width: 40vw;
+        z-index: 1;
+    }
+
+    .mobile__visible {
+       align-content: flex-start;
+       background-color: rgba(0,0,0,0.7);
+       clip-path: polygon(0% 0%, 54% 0, 100% 26%, 65% 100%, 0% 100%);
+       display: flex;
+       flex-direction: column;
+       height: 100vh;
+       justify-content: center;
+       left: 0;
+       position: fixed;
+       transition: left 0.2s 0.1s;
+       width: 55vw;
+       z-index: 1;
+    }
+
+    .mobile__hidden {
+       height: 100vh;
+       left: -1000px;
+       position: fixed;
+       width: 40vw;
+    }
+    
+    .mobile__list {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mobile__link {
+        color: rgb(255,255,255);
+        cursor: pointer;
+        margin: 20px;
+        text-decoration: none;
+    }
+    
+    .desktop {
+        background-color: transparent;
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .mobile {
+        display: none;
+    }
+
+    .desktop {
+        background: url(../../images/bcg.png);
+        display: block;
+        margin: 0px;
+        width: 100%;
+    }
+
+    .desktop__list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .desktop__link {
+        border-radius: 15px;
+        color: rgb(255,255,255);
+        display: flex;
+        flex-direction: column;
+        height: 50px;
+        justify-content: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        overflow: hidden;
+        position: relative;
+        text-decoration: none;
+        width: 120px;
+        z-index: 0;
+    }
+
+    .desktop__link::after {
+        background-color: red;
+        content: "";
+        height: 80px;
+        left: 0;
+        opacity: 0.5;
+        position: absolute;
+        top: 50px;
+        transition: top 0.2s 0.1s;
+        width: 100%;
+    }
+
+    .desktop__link:hover::after {
+        top: 0;
+    }
+
+    .desktop__link:hover .desktopSpan {
+        color: rgb(0, 0, 0);
+    }
+
+    .desktop__span {
+        display: block;
+        text-align: center;
+        transition: color 0.2s 0.1s;
+        z-index: 2;
+    }
+}

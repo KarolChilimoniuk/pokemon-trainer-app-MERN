@@ -1,0 +1,56 @@
+@media (min-width: 0px) and (max-width: 1023px) {
+    .defaultBurger {
+        border-bottom-color: #fff;
+        border-bottom-style: solid;
+        border-bottom-width: 5px;
+        cursor: pointer;
+        height: 30px;
+        left: 40px;
+        width: 40px;
+        position: fixed;
+        top: 60px;   
+        z-index: 2;
+    }
+
+    .defaultBurger::before, .defaultBurger::after {
+        border-bottom: solid #fff 5px;
+        content: "";
+        position: absolute;
+        width: 100%;
+    }
+
+    .defaultBurger::after {
+        lefT: 0;
+        top: 50%;
+    }
+
+    .xBurger {
+        cursor: pointer;
+        height: 30px;
+        left: 40px;
+        width: 40px;
+        position: fixed;
+        top: 60px;
+        transform: rotateX(-200deg);
+        transition: transform 0.4s 0.1s;
+        z-index: 2;
+    }
+
+    .xBurger::before, .xBurger::after {
+       border-top: solid #fff 5px;
+       bottom: 0;
+       content: "";
+       left: 0;
+       position: absolute;
+       transition: transform 0.2s 0.1s;
+       width: 100%;
+    }
+
+    .xBurger::before {
+       transform: rotateZ(-45deg);
+    }
+
+    .xBurger::after {
+       transform: rotateZ(45deg);
+    }
+}

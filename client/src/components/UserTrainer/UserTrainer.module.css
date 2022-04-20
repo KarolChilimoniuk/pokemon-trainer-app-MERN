@@ -1,0 +1,72 @@
+.trainer__container {
+    border: 1px solid #000;
+    margin-top: 20px;
+}
+
+.images__container {
+    background-color: #000;
+    border-width: 0;
+    padding: 10px;
+}
+
+.image__visible {
+    cursor: pointer;
+    display: inline;
+    margin-right: 20px;
+    min-height: 20px;
+    max-height: 30px;
+}
+
+.image__hidden {
+    display: none;
+}
+
+.images__header {
+    display: inline;
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.info__hidden {
+    display: none;
+}
+
+.info__name {
+    text-transform: capitalize;
+}
+
+.info__title {
+    color: #fff;
+}
+
+.info__paragraph {
+    display: block;
+}
+
+.buttons__container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.button {
+    background-color: rgba(255,255,255,0.3);
+    border-width: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    height: 40px;
+    margin-top: 15px;
+    padding: 5px;
+    width: 100px;
+}
+
+.button:active {
+    background-color: rgb(0,0,0,0.3);
+    color: rgb(255,255,255);
+}

@@ -1,0 +1,215 @@
+.monster__container {
+    text-decoration: none;
+}
+
+.paragraph__name, .paragraph__id, .type {
+    color: rgb(0,0,0);
+}
+
+.monster__add__container {
+    align-self: center;
+    align-items: center;
+    background-color: rgba(150,150,150,0.2);
+    border-radius: 5px;
+    /* cursor: pointer; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+    max-height: 70%;
+    min-width: 195px;
+    padding: 20px;
+    text-decoration: none;
+    width: 60%;
+}
+
+@media (max-width: 420px) {
+    
+    .monster__container {
+        align-items: center;
+        background-color: rgba(150,150,150,0.2);
+        border-radius: 5px;
+        /* cursor: pointer; */
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+        padding: 20px;
+        text-decoration: none;
+        width: 60%;
+    }
+    
+    .image {
+        height: 150px;
+        width: 150px;
+    }
+    
+    .paragraph__id {
+        font-size: 1.2em;
+    }
+    
+    .paragrpah__name {
+        font-size: 1.4em;
+        text-transform: capitalize;
+    }
+    
+    .types {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .type {
+        border: rgb(0,0,0) solid 1px;
+        border-radius: 5px;
+        font-size: 0.8em;
+        margin-right: 10px;
+        text-align: center;
+        padding-bottom: 5px;
+        width: 65px;
+    }
+}
+
+@media(min-width: 421px) {
+
+    .monster__add__container {
+        max-width: 70%;
+    }
+
+    .monster__container {
+        align-items: center;
+        background-color: rgba(150,150,150,0.3);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+        padding: 20px;
+        width: 40%;
+    }
+
+    .image {
+        height: 90px;
+        width: 90px;
+    }
+    
+    .paragraph__id {
+        font-size: 0.9em;
+    }
+    
+    .paragraph__name {
+        font-size: 1.0em;
+        text-transform: capitalize;
+    }
+    
+    .types {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .type {
+        border: rgb(0,0,0) solid 1px;
+        border-radius: 5px;
+        font-size: 0.8em;
+        margin-right: 10px;
+        text-align: center;
+        padding-bottom: 5px;
+        width: 50px;
+    }
+}
+
+@media(min-width: 720px) {
+    .monster__add__container {
+        min-width: 195px;
+        max-width: 30%;
+    }
+}
+
+@media (min-width: 1100px) {
+
+    .monster__container {
+        align-items: center;
+        background-color: rgba(150,150,150,0.3);
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+        padding: 20px;
+        width: 20%;
+    }
+
+    .monster__add__container {
+        max-height: 350px;
+    }
+
+    .image {
+        height: 150px;
+        width: 150px;
+    }
+    
+    .paragraph__id {
+        font-size: 1.1em;
+    }
+    
+    .paragraph__name {
+        font-size: 1.5em;
+        text-transform: capitalize;
+    }
+    
+    .types {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .type {
+        border: rgb(0,0,0) solid 1px;
+        border-radius: 5px;
+        margin-right: 10px;
+        text-align: center;
+        padding-bottom: 5px;
+        width: 65px;
+    }
+}
+
+.activeLink {
+    color: rgb(0,0,0);
+}
+
+.link {
+    color: rgb(255,255,255);
+    font-size: 2em;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: rgb(0,0,0);
+}
+
+.button {
+    background-color: rgba(0,0,0,0.7);
+    border-width: 0;
+    border-radius: 5px;
+    color: rgb(255,255,255);
+    cursor: pointer;
+    font-weight: 700;
+    height: 40px;
+    padding: 5px;
+    width: 100px;
+}
+
+.button:active {
+    background-color: rgba(255,255,255,0.3);
+    color: rgb(0,0,0);
+}
+
+@media (max-width: 400px) {
+    .monster__add__container {
+        height: 300px;
+    }
+
+    .paragraph__id {
+        font-size: 0.8em;
+    }
+
+    .paragraph__name {
+        font-size: 0.9em;
+    }
+}
