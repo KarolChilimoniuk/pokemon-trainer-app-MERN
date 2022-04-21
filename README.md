@@ -20,6 +20,7 @@ In this project I practise using React library with backend based on node.js (RE
 * dotenv
 * heroku (for deployment)
 * redux with redux-thunk
+* react-google-login
 * Visual Studio Code
 ***
 ### How does it look? 👀
