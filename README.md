@@ -4,8 +4,8 @@ Hello World! I have a pleasure to present my MERN app. In this app you can check
 You can create a user account where you can add trainers from pokemon games you played and next, you can add caught pokemons to every trainer. Enjoy!
 
 You don't have to register your account. You can use demo account to log in:
-e-mail: xyz@wp.pl
-password: xyz
+**e-mail:** *xyz@wp.pl*
+**password:** *xyz*
 
 ***
 ### Technologies and Tools 🏗
