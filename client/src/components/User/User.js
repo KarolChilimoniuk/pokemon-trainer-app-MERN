@@ -11,7 +11,7 @@ const User = () => {
  const userData = useSelector((state) => state.user);
  
  const userTrainers = userData.trainers.map((el) => 
-    <UserTrainer trainer={el}/>
+    <UserTrainer trainer={el} />
  );
 
  return(
