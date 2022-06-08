@@ -26,6 +26,7 @@ In this project I practise using React library with backend based on node.js (RE
 * heroku (for deployment)
 * redux with redux-thunk
 * react-google-login
+* cookies
 * Visual Studio Code
 ***
 ### How does it look? 👀
