@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const {User, validation} = require('../models/user.js');
 
 const getUsers = async (req, res) => {
+  res.set('Access-Control-Allow-Origin', 'https://pokemon-trainer-mern-app.netlify.app');
   try {
     const users = await User.find();
     res.status(200).json(users);
@@ -13,6 +14,7 @@ const getUsers = async (req, res) => {
 }
 
 const signUp = async(req, res) => {
+  res.set('Access-Control-Allow-Origin', 'https://pokemon-trainer-mern-app.netlify.app');
   try{
     const {error} = validation(req.body);
     error && res.status(400).send({message: error.details[0].message});
@@ -36,6 +38,7 @@ const signUp = async(req, res) => {
 }
 
 const signIn = async(req, res) => {
+  res.set('Access-Control-Allow-Origin', 'https://pokemon-trainer-mern-app.netlify.app');
   try{
     const {error} = signInValidation(req.body);
     error && res.status(400).send({message: error.details[0].message});
@@ -55,13 +58,14 @@ const signIn = async(req, res) => {
 }
 
 const signInViaGoogle = async(req, res) => {
+  res.set('Access-Control-Allow-Origin', 'https://pokemon-trainer-mern-app.netlify.app');
   try{
     const user = await User.findOne({email: req.body.email});
     !user && res.status(401).send({message:'You have to register your account with this email in this app'});
     const token = user.generateAuthToken(user._id, user.email);
     res.cookie('token', token, {
       maxAge: 7 * 24 * 60 * 60 * 1000,
-      httpOnly: process.env.NODE_ENV === 'production' ? true : false,
+      httpOnly: process.env.NODE_ENV === `${production}` ? true : false,
       secure: false,
     }).status(200).send({message: 'Log in succesfully', userData: {userId:user._id, userName: user.userName,email: user.email, trainers: user.trainers, logged: true}});
   } catch(err) {
@@ -70,6 +74,7 @@ const signInViaGoogle = async(req, res) => {
 }
 
 const logout = async(req, res) => {
+  res.set('Access-Control-Allow-Origin', 'https://pokemon-trainer-mern-app.netlify.app');
   try {
     const {token} = req.cookies;
     token && res.clearCookie('token').send({message: 'Cookie cleared'});
@@ -79,6 +84,7 @@ const logout = async(req, res) => {
 }
 
 const newSession = async(req, res) => {
+  res.set('Access-Control-Allow-Origin', 'https://pokemon-trainer-mern-app.netlify.app');
   const {token} = req.cookies;
   !token ? res.status(200).send({cookie: false, logged: false}) : res.status(200).send({cookie: true, logged: true});
 }
