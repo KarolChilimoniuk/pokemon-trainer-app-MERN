@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const cors = require("cors");
+// const cors = require("cors");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
@@ -22,18 +22,34 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "client", "build")));
 app.use(express.json());
 app.use(express.urlencoded());
-app.use(
-  cors({
-    credentials: true,
-    origin: `${process.env.FRONTEND_URI}`,
-  })
-);
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: `${process.env.FRONTEND_URI}`,
+//   })
+// );
 
 app.use("/", mainRoutes);
 app.use("/auth", signinSignupRoutes);
 app.use("/loggedUser", userTrainersRoutes);
 
 //------ client build folder controller ------ //
+
+//------ CORS handler ------
+
+app.all("*", (req, res, next) => {
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://pokemontrainerappclient.onrender.com"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "POST");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+  );
+  next();
+});
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
