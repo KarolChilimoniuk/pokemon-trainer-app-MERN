@@ -23,12 +23,14 @@ In this project I practise using React library with backend based on node.js (RE
 * uuid
 * cors
 * dotenv
-* heroku (for deployment)
+* heroku (for deployment - untill 28th November 2022)
+* render (for new deployment)
 * redux with redux-thunk
 * react-google-login
 * cookies
 * Visual Studio Code
 ***
 ### How does it look? 👀
-[Check my app here](https://pokemontrainerapp.herokuapp.com/)
+[Present app deployed on Heroku (until 28th November 2022)](https://pokemontrainerapp.herokuapp.com/)
+[New app deployed on Render](https://pokemontrainerappclient.onrender.com/)
 ***
