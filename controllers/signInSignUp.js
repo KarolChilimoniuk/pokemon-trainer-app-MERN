@@ -65,9 +65,9 @@ const signIn = async (req, res) => {
       res.status(401).send({ message: "Incorrect password" });
     }
     const token = await user.generateAuthToken(user._id, user.email);
-    res.setHeader("Set-Cookie", "SameSite=None");
     res
       .cookie("token", token, {
+        sameSite: "None",
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: process.env.NODE_ENV === "production" ? true : false,
         secure: false,
@@ -98,9 +98,9 @@ const signInViaGoogle = async (req, res) => {
       });
     }
     const token = user.generateAuthToken(user._id, user.email);
-    res.setHeader("Set-Cookie", "SameSite=None");
     res
       .cookie("token", token, {
+        sameSite: "None",
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: process.env.NODE_ENV === "production" ? true : false,
         secure: false,
