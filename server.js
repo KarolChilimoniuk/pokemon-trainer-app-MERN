@@ -22,12 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "client", "build")));
 app.use(express.json());
 app.use(express.urlencoded());
-app.use(
-  cors({
-    credentials: true,
-    origin: `https://pokemontrainerappclient.onrender.com`,
-  })
-);
+app.use(cors());
 
 app.use("/", mainRoutes);
 app.use("/auth", signinSignupRoutes);
@@ -37,19 +32,19 @@ app.use("/loggedUser", userTrainersRoutes);
 
 //------ CORS handler ------
 
-// app.all("*", (req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Credentials", "true");
-//   res.setHeader(
-//     "Access-Control-Allow-Origin",
-//     "https://pokemontrainerappclient.onrender.com"
-//   );
-//   res.setHeader("Access-Control-Allow-Methods", "POST");
-//   res.setHeader(
-//     "Access-Control-Allow-Headers",
-//     "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
-//   );
-//   next();
-// });
+app.all("*", (req, res, next) => {
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://pokemontrainerappclient.onrender.com"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+  );
+  next();
+});
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
