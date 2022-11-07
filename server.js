@@ -22,7 +22,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "client", "build")));
 app.use(express.json());
 app.use(express.urlencoded());
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+    origin: `https://pokemontrainerappclient.onrender.com`,
+  })
+);
 
 app.use("/", mainRoutes);
 app.use("/auth", signinSignupRoutes);
@@ -38,7 +43,10 @@ app.all("*", (req, res, next) => {
     "Access-Control-Allow-Origin",
     "https://pokemontrainerappclient.onrender.com"
   );
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "DELETE, GET, PATCH, POST, PUT"
+  );
   res.setHeader(
     "Access-Control-Allow-Headers",
     "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
