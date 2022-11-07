@@ -62,14 +62,14 @@ const signIn = async (req, res) => {
       user.password
     );
     if (!validatedPassword) {
-      res.status(401).send({ message: "Incorrect password." });
+      res.status(401).send({ message: "Incorrect password" });
     }
     const token = await user.generateAuthToken(user._id, user.email);
     res
       .cookie("token", token, {
+        sameSite: "None",
         maxAge: 7 * 24 * 60 * 60 * 1000,
-        httpOnly: process.env.NODE_ENV === "production" ? true : false,
-        secure: false,
+        secure: true,
       })
       .status(200)
       .send({
@@ -99,9 +99,9 @@ const signInViaGoogle = async (req, res) => {
     const token = user.generateAuthToken(user._id, user.email);
     res
       .cookie("token", token, {
+        sameSite: "None",
         maxAge: 7 * 24 * 60 * 60 * 1000,
-        httpOnly: process.env.NODE_ENV === "production" ? true : false,
-        secure: false,
+        secure: true,
       })
       .status(200)
       .send({
