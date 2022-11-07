@@ -69,7 +69,6 @@ const signIn = async (req, res) => {
       .cookie("token", token, {
         sameSite: "None",
         maxAge: 7 * 24 * 60 * 60 * 1000,
-        httpOnly: process.env.NODE_ENV === "production" ? true : false,
         secure: true,
       })
       .status(200)
@@ -102,7 +101,6 @@ const signInViaGoogle = async (req, res) => {
       .cookie("token", token, {
         sameSite: "None",
         maxAge: 7 * 24 * 60 * 60 * 1000,
-        httpOnly: process.env.NODE_ENV === "production" ? true : false,
         secure: true,
       })
       .status(200)
