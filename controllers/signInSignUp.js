@@ -62,7 +62,7 @@ const signIn = async (req, res) => {
       user.password
     );
     if (!validatedPassword) {
-      res.status(401).send({ message: "Incorrect password" });
+      res.status(401).send({ message: "Incorrect password." });
     }
     const token = await user.generateAuthToken(user._id, user.email);
     res
