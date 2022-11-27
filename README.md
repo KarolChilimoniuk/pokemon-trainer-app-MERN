@@ -7,6 +7,8 @@ You don't have to register your account. You can use demo account to log in:
 **e-mail:** *xyz@wp.pl*
 **password:** *xyz*
 
+**** First request to the database (for example log in) can take some seconds (please, be patient), because I use free services in Render. As it is known - free services are slower than paid services ****
+
 ***
 ### Technologies and Tools 🏗
 In this project I practise using React library with backend based on node.js (REST API with database, cookie handling, authentication etc).
