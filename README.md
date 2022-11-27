@@ -23,7 +23,7 @@ In this project I practise using React library with backend based on node.js (RE
 * uuid
 * cors
 * dotenv
-* heroku (for deployment - untill 28th November 2022)
+* heroku (for deployment - until 28th November 2022)
 * render (for new deployment)
 * redux with redux-thunk
 * react-google-login
