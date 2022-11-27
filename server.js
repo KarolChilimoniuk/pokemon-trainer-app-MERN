@@ -25,7 +25,7 @@ app.use(express.urlencoded());
 app.use(
   cors({
     credentials: true,
-    origin: `${process.env.FRONTEND_URI}`,
+    origin: `https://pokemontrainerappclient.onrender.com`,
   })
 );
 
