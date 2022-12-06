@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GoogleLogin } from "react-google-login";
 import { NavLink, useHistory } from "react-router-dom";
@@ -11,6 +11,7 @@ const RegisterAndLogin = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const hasAccount = useSelector((state) => state.user.hasAccount);
+  const logged = useSelector((state) => state.user.logged);
   const initialFormState = {
     userName: "",
     email: "",
@@ -19,25 +20,32 @@ const RegisterAndLogin = () => {
   };
   const [formData, setFormData] = useState(initialFormState);
   const [error, setError] = useState(null);
+  const [isLoading, setLoading] = useState(false);
 
   const changeHandler = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const signUpHandler = (e) => {
+  const signUpHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      signUp(formData, setError, history);
+      await signUp(formData, setError, history);
+      setLoading(false);
     } catch (err) {
+      setLoading(false);
       console.log(err.message);
     }
   };
 
-  const signInHandler = (e) => {
+  const signInHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      signIn(formData, setError, history, dispatch);
+      await signIn(formData, setError, history, dispatch);
+      setLoading(false);
     } catch (err) {
+      setLoading(false);
       console.log(err.message);
     }
   };
@@ -53,12 +61,14 @@ const RegisterAndLogin = () => {
     const userData = { ...profileData };
     try {
       signInByGoogle(userData, setError, history, dispatch);
+      setLoading(false);
     } catch (err) {
       console.log(err.message);
     }
   };
 
   const googleResponseFailure = (err) => {
+    setLoading(false);
     console.log(`Google authorization failed :(`);
     console.log(err.message);
   };
@@ -73,6 +83,13 @@ const RegisterAndLogin = () => {
       >
         {error !== null && error}
       </h4>
+      {isLoading === true && (
+        <p className={styles.loading__paragraph}>...Loading data</p>
+      )}
+      <p className={styles.example__paragraph}>
+        ***to log in you can use existing account: e-mail: xyz@wp.pl password:
+        xyz ***
+      </p>
       {hasAccount ? (
         <form styles={styles.register__form} onSubmit={signInHandler}>
           <div className={styles.input__container}>
@@ -105,23 +122,25 @@ const RegisterAndLogin = () => {
               value="Login"
             />
           </div>
-          <GoogleLogin
-            render={(renderProps) => (
-              <div className={styles.google__container}>
-                <img src={googleIcon} className={styles.google__image} />
-                <button
-                  onClick={renderProps.onClick}
-                  className={styles.google__button}
-                >
-                  Sign in by Google
-                </button>
-              </div>
-            )}
-            clientId="468618443782-ncpt0so89698t45tmg0511vs8olpfkn6.apps.googleusercontent.com"
-            onSuccess={googleResponseSuccess}
-            onFailure={googleResponseFailure}
-            cookiePolicy={"single_host_origin"}
-          />
+          <div onClick={() => setLoading(true)}>
+            <GoogleLogin
+              render={(renderProps) => (
+                <div className={styles.google__container}>
+                  <img src={googleIcon} className={styles.google__image} />
+                  <button
+                    onClick={renderProps.onClick}
+                    className={styles.google__button}
+                  >
+                    Sign in by Google
+                  </button>
+                </div>
+              )}
+              clientId="468618443782-ncpt0so89698t45tmg0511vs8olpfkn6.apps.googleusercontent.com"
+              onSuccess={googleResponseSuccess}
+              onFailure={googleResponseFailure}
+              cookiePolicy={"single_host_origin"}
+            />
+          </div>
         </form>
       ) : (
         <form styles={styles.form} onSubmit={signUpHandler}>
