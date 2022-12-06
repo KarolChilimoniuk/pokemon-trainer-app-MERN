@@ -12,7 +12,7 @@ require("dotenv").config({ path: "./.env" });
 const app = express();
 const port = process.env.PORT || 7000;
 
-//------Express--------
+//------Express-----
 
 app.use(bodyParser.json({ limit: "500mb" }));
 app.use(bodyParser.urlencoded({ limit: "500mb", extended: true }));
