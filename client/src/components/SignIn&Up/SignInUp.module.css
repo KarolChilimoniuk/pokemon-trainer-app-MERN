@@ -19,8 +19,8 @@
   display: flex;
   justify-content: flex-end;
   margin: 0;
-  padding-bottom: 40px;
-  padding-top: 30px;
+  padding-bottom: 20px;
+  padding-top: 20px;
   position: fixed;
   transition: background-color, 0.5s, 0.5s;
   width: 100%;

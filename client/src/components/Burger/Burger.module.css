@@ -5,10 +5,10 @@
     border-bottom-width: 5px;
     cursor: pointer;
     height: 30px;
-    left: 40px;
+    left: 20px;
     width: 40px;
     position: fixed;
-    top: 20px;
+    top: 10px;
     z-index: 2;
   }
 
@@ -28,10 +28,10 @@
   .xBurger {
     cursor: pointer;
     height: 30px;
-    left: 40px;
+    left: 20px;
     width: 40px;
     position: fixed;
-    top: 40px;
+    top: 20px;
     transform: rotateX(-200deg);
     transition: transform 0.4s 0.1s;
     z-index: 2;
