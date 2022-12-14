@@ -7,7 +7,7 @@ You don't have to register your account. You can use demo account to log in:
 **e-mail:** *xyz@wp.pl*
 **password:** *xyz*
 
-**** First request to the database (for example log in) can take some seconds (please, be patient), because I use free services in Render. As it is known - free services are slower than paid services ****
+**** Note: All my projects were recently migrated from Heroku to Render and it may take approximately 45-120 seconds to spin up the servers once loaded ****
 
 ***
 ### Technologies and Tools 🏗
