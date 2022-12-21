@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useHistory,
+} from "react-router-dom";
 import { fetchPokemonList } from "./actions/pokemonActions.js";
 import SignInUp from "./components/SignIn&Up/SignIn&Up";
 import Nav from "./components/Navigation/Navigation";
@@ -15,10 +20,13 @@ import "./App.css";
 const App = () => {
   const loading = useSelector((state) => state.monsters.isLoading);
   const monsterToShow = useSelector((state) => state.monsters.pokemonToDisplay);
+  const loggedStatus = useSelector((state) => state.user.logged);
+  const history = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchPokemonList());
+    loggedStatus === false && history.push("/");
   }, []);
 
   return (
