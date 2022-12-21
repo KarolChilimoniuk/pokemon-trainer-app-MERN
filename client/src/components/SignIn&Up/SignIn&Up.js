@@ -10,36 +10,39 @@ const SignInUp = () => {
   const loginStatus = useSelector((state) => state.user.logged);
   const hasAccount = useSelector((state) => state.user.hasAccount);
   const userName = useSelector((state) => state.user.userName);
+  const cookieStatus = useSelector((state) => state.user.cookie);
   const dispatch = useDispatch();
 
-  const [loggedUser, setLoggedUser] = useState(
-    JSON.parse(localStorage.getItem("loggedUser"))
-  );
+  const [loggedUser, setLoggedUser] = useState(false);
   const [scrolled, setScroll] = useState(false);
 
   useEffect(() => {
-    console.log(loginStatus, hasAccount);
-    loggedUser.hasOwnProperty("userName") &&
-      dispatch(loginNativeUser(loggedUser));
+    console.log(loginStatus, hasAccount, cookieStatus);
+    cookieStatus &&
+      setLoggedUser(JSON.parse(localStorage.getItem("loggedUser")));
+    loggedUser !== false && dispatch(loginNativeUser(loggedUser));
+    setInterval(newSess(dispatch), 1000 * 60 * 40);
     window.addEventListener("scroll", () => {
       window.scrollY >= 20 ? setScroll(true) : setScroll(false);
     });
   }, []);
 
   const logoutHandler = () => {
-    setLoggedUser(false);
-    dispatch(logout());
     cookieClear();
+    dispatch(logout());
+    console.log(loginStatus, hasAccount, cookieStatus);
   };
 
   return (
     <div
       className={scrolled ? styles.scrolled__container : styles.link__container}
     >
-      <button onClick={() => console.log(loginStatus, loggedUser)}>
-        ddddd
+      <button
+        onClick={() => console.log(loginStatus, hasAccount, cookieStatus)}
+      >
+        ddd
       </button>
-      {loginStatus === true && loggedUser.hasOwnProperty("userName") && (
+      {loginStatus === true && cookieStatus == true && (
         <p className={styles.paragraph}>
           <NavLink className={styles.user__link} to="/loggedUser">
             <img className={styles.image} src={PokemonTrainer} />

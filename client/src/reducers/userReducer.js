@@ -13,10 +13,10 @@ const InitialState = {
 const userReducer = (state = InitialState, action) => {
   switch (action.type) {
     case "LOGIN_GOOGLE_USER":
-      localStorage.setItem(
-        "loggedUser",
-        JSON.stringify({ ...action.payloads })
-      );
+      //   localStorage.setItem(
+      //     "loggedUser",
+      //     JSON.stringify({ ...action.payloads })
+      //   );
       return {
         ...state,
         hasAccount: true,
@@ -28,10 +28,10 @@ const userReducer = (state = InitialState, action) => {
       };
 
     case "LOGIN_NATIVE_USER_SUCCESS":
-      localStorage.setItem(
-        "loggedUser",
-        JSON.stringify({ ...action.payloads })
-      );
+      //   localStorage.setItem(
+      //     "loggedUser",
+      //     JSON.stringify({ ...action.payloads })
+      //   );
       return {
         ...state,
         hasAccount: true,
@@ -63,10 +63,10 @@ const userReducer = (state = InitialState, action) => {
       };
 
     case "UPDATE_USER_DATA":
-      localStorage.setItem(
-        "loggedUser",
-        JSON.stringify({ ...action.payloads })
-      );
+      //   localStorage.setItem(
+      //     "loggedUser",
+      //     JSON.stringify({ ...action.payloads })
+      //   );
       return {
         ...state,
         trainers: action.payloads.trainers,
