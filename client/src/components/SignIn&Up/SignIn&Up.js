@@ -12,14 +12,11 @@ const SignInUp = () => {
   const userName = useSelector((state) => state.user.userName);
   const dispatch = useDispatch();
 
-  // const [loggedUser, setLoggedUser] = useState(
-  //   JSON.parse(localStorage.getItem("loggedUser"))
-  // );
   const [scrolled, setScroll] = useState(false);
 
   useEffect(() => {
     console.log(loginStatus, hasAccount);
-    loggedUser && dispatch(loginNativeUser(loggedUser));
+    userName !== "" && dispatch(loginNativeUser(loggedUser));
     setInterval(newSess(dispatch), 1000 * 60 * 40);
     window.addEventListener("scroll", () => {
       window.scrollY >= 20 ? setScroll(true) : setScroll(false);
