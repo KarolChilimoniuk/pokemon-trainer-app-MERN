@@ -19,9 +19,8 @@ const SignInUp = () => {
 
   useEffect(() => {
     console.log(loginStatus, hasAccount);
-    if (loggedUser.userName) {
+    loggedUser.hasOwnProperty("userName") &&
       dispatch(loginNativeUser(loggedUser));
-    }
     window.addEventListener("scroll", () => {
       window.scrollY >= 20 ? setScroll(true) : setScroll(false);
     });
@@ -40,7 +39,7 @@ const SignInUp = () => {
       <button onClick={() => console.log(loginStatus, loggedUser)}>
         ddddd
       </button>
-      {loginStatus === true && loggedUser !== false && loggedUser !== null && (
+      {loginStatus === true && loggedUser.hasOwnProperty("userName") && (
         <p className={styles.paragraph}>
           <NavLink className={styles.user__link} to="/loggedUser">
             <img className={styles.image} src={PokemonTrainer} />
