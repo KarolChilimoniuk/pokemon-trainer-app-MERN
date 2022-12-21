@@ -12,11 +12,14 @@ const SignInUp = () => {
   const userName = useSelector((state) => state.user.userName);
   const dispatch = useDispatch();
 
+  const [loggedUser, setLoggedUser] = useState(
+    JSON.parse(localStorage.getItem("loggedUser"))
+  );
   const [scrolled, setScroll] = useState(false);
 
   useEffect(() => {
     console.log(loginStatus, hasAccount);
-    userName !== "" && dispatch(loginNativeUser(userName));
+    loggedUser.userName && dispatch(loginNativeUser(loggedUser));
     setInterval(newSess(dispatch), 1000 * 60 * 40);
     window.addEventListener("scroll", () => {
       window.scrollY >= 20 ? setScroll(true) : setScroll(false);
@@ -25,6 +28,7 @@ const SignInUp = () => {
 
   const logoutHandler = () => {
     cookieClear();
+    setLoggedUser(false);
     dispatch(logout());
   };
 
@@ -32,8 +36,10 @@ const SignInUp = () => {
     <div
       className={scrolled ? styles.scrolled__container : styles.link__container}
     >
-      <button onClick={() => console.log(loginStatus, userName)}>ddddd</button>
-      {loginStatus === true && userName !== "" && (
+      <button onClick={() => console.log(loginStatus, loggedUser)}>
+        ddddd
+      </button>
+      {loginStatus === true && loggedUser !== false && (
         <p className={styles.paragraph}>
           <NavLink className={styles.user__link} to="/loggedUser">
             <img className={styles.image} src={PokemonTrainer} />
@@ -46,7 +52,7 @@ const SignInUp = () => {
           <span>Sign In</span>
         </NavLink>
       )}
-      {hasAccount === true && loginStatus === true && (
+      {loginStatus === true && (
         <NavLink className={styles.link} onClick={logoutHandler} to="/">
           <span>Logout</span>
         </NavLink>
