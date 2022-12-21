@@ -19,7 +19,7 @@ const SignInUp = () => {
 
   useEffect(() => {
     console.log(loginStatus, hasAccount);
-    loggedUser && dispatch(loginNativeUser(loggedUser));
+    loggedUser !== (null || undefined) && dispatch(loginNativeUser(loggedUser));
     setInterval(newSess(dispatch), 1000 * 60 * 40);
     window.addEventListener("scroll", () => {
       window.scrollY >= 20 ? setScroll(true) : setScroll(false);
@@ -39,7 +39,7 @@ const SignInUp = () => {
         <p className={styles.paragraph}>
           <NavLink className={styles.user__link} to="/loggedUser">
             <img className={styles.image} src={PokemonTrainer} />
-            {loggedUser.userName}
+            {userName}
           </NavLink>
         </p>
       )}
