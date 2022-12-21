@@ -12,9 +12,9 @@ const SignInUp = () => {
   const userName = useSelector((state) => state.user.userName);
   const dispatch = useDispatch();
 
-  const [loggedUser, setLoggedUser] = useState(
-    JSON.parse(localStorage.getItem("loggedUser"))
-  );
+  // const [loggedUser, setLoggedUser] = useState(
+  //   JSON.parse(localStorage.getItem("loggedUser"))
+  // );
   const [scrolled, setScroll] = useState(false);
 
   useEffect(() => {
@@ -36,7 +36,10 @@ const SignInUp = () => {
     <div
       className={scrolled ? styles.scrolled__container : styles.link__container}
     >
-      {loginStatus === true && loggedUser !== false && (
+      <button onClick={() => console.log(loginStatus, loggedUser)}>
+        ddddd
+      </button>
+      {loginStatus === true && userName !== "" && (
         <p className={styles.paragraph}>
           <NavLink className={styles.user__link} to="/loggedUser">
             <img className={styles.image} src={PokemonTrainer} />
