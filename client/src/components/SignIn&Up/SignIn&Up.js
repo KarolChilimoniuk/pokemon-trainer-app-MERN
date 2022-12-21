@@ -28,6 +28,7 @@ const SignInUp = () => {
 
   const logoutHandler = () => {
     cookieClear();
+    setLoggedUser(false);
     dispatch(logout());
   };
 
@@ -35,7 +36,7 @@ const SignInUp = () => {
     <div
       className={scrolled ? styles.scrolled__container : styles.link__container}
     >
-      {loginStatus === true && (
+      {loginStatus === true && loggedUser !== false && (
         <p className={styles.paragraph}>
           <NavLink className={styles.user__link} to="/loggedUser">
             <img className={styles.image} src={PokemonTrainer} />
