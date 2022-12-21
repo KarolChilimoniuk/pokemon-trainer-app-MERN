@@ -19,17 +19,18 @@ const SignInUp = () => {
 
   useEffect(() => {
     console.log(loginStatus, hasAccount);
-    (loggedUser !== false || null) && dispatch(loginNativeUser(loggedUser));
-    setInterval(newSess(dispatch), 1000 * 60 * 40);
+    if (loggedUser.userName) {
+      dispatch(loginNativeUser(loggedUser));
+    }
     window.addEventListener("scroll", () => {
       window.scrollY >= 20 ? setScroll(true) : setScroll(false);
     });
   }, []);
 
   const logoutHandler = () => {
-    cookieClear();
     setLoggedUser(false);
     dispatch(logout());
+    cookieClear();
   };
 
   return (
