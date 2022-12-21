@@ -26,7 +26,9 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchPokemonList());
-    loggedStatus === false && history.push("/");
+    if (loggedStatus === false) {
+      history.push("/");
+    }
   }, []);
 
   return (
