@@ -16,7 +16,7 @@ const SignInUp = () => {
 
   useEffect(() => {
     console.log(loginStatus, hasAccount);
-    userName !== "" && dispatch(loginNativeUser(loggedUser));
+    userName !== "" && dispatch(loginNativeUser(userName));
     setInterval(newSess(dispatch), 1000 * 60 * 40);
     window.addEventListener("scroll", () => {
       window.scrollY >= 20 ? setScroll(true) : setScroll(false);
@@ -25,7 +25,6 @@ const SignInUp = () => {
 
   const logoutHandler = () => {
     cookieClear();
-    setLoggedUser(false);
     dispatch(logout());
   };
 
@@ -33,9 +32,7 @@ const SignInUp = () => {
     <div
       className={scrolled ? styles.scrolled__container : styles.link__container}
     >
-      <button onClick={() => console.log(loginStatus, loggedUser)}>
-        ddddd
-      </button>
+      <button onClick={() => console.log(loginStatus, userName)}>ddddd</button>
       {loginStatus === true && userName !== "" && (
         <p className={styles.paragraph}>
           <NavLink className={styles.user__link} to="/loggedUser">
