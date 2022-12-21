@@ -19,7 +19,8 @@ const SignInUp = () => {
 
   useEffect(() => {
     console.log(loginStatus, hasAccount);
-    loggedUser.userName && dispatch(loginNativeUser(loggedUser));
+    (loggedUser !== false || undefined) &&
+      dispatch(loginNativeUser(loggedUser));
     setInterval(newSess(dispatch), 1000 * 60 * 40);
     window.addEventListener("scroll", () => {
       window.scrollY >= 20 ? setScroll(true) : setScroll(false);
