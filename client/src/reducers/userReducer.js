@@ -25,6 +25,7 @@ const userReducer = (state = InitialState, action) => {
         userName: action.payloads.name,
         email: action.payloads.email,
         logged: action.payloads.logged,
+        cookie: true,
       };
 
     case "LOGIN_NATIVE_USER_SUCCESS":
@@ -40,6 +41,7 @@ const userReducer = (state = InitialState, action) => {
         email: action.payloads.email,
         logged: action.payloads.logged,
         trainers: action.payloads.trainers,
+        cookie: true,
       };
 
     case "LOGOUT":
