@@ -51,13 +51,11 @@ const SignInUp = () => {
           <span>Sign In</span>
         </NavLink>
       )}
-      {loginStatus === true &&
-        cookieStatus ===
-          true(
-            <NavLink className={styles.link} onClick={logoutHandler} to="/">
-              <span>Logout</span>
-            </NavLink>
-          )}
+      {loginStatus === true && cookieStatus === true && (
+        <NavLink className={styles.link} onClick={logoutHandler} to="/">
+          <span>Logout</span>
+        </NavLink>
+      )}
       {hasAccount === false && loginStatus === false && (
         <NavLink className={styles.link} to="/auth/signup">
           <span>Sign up</span>
