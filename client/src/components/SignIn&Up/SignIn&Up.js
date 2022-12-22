@@ -21,9 +21,9 @@ const SignInUp = () => {
     console.log(loginStatus, hasAccount);
     await newSess(dispatch);
     if (cookieStatus) {
-      const storage = localStorage.getItem("loggedUser");
-      setLoggedUser(JSON.parse(storage));
-      dispatch(loginNativeUser(loggedUser));
+      const storage = JSON.parse(localStorage.getItem("loggedUser"));
+      setLoggedUser(JSON.parse(localStorage.getItem("loggedUser")));
+      dispatch(loginNativeUser(storage));
     }
     window.addEventListener("scroll", () => {
       window.scrollY >= 20 ? setScroll(true) : setScroll(false);
@@ -47,7 +47,7 @@ const SignInUp = () => {
           </NavLink>
         </p>
       )}
-      <button onClick={() => console.log(userData)}>click</button>
+      <button onClick={() => console.log(userData, loggedUser)}>click</button>
       {hasAccount === true && loginStatus === false && (
         <NavLink className={styles.link} to="/auth/signin">
           <span>Sign In</span>
