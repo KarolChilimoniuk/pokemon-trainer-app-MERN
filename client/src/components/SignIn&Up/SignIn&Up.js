@@ -20,15 +20,18 @@ const SignInUp = () => {
   useEffect(async () => {
     console.log(loginStatus, hasAccount);
     await newSess(dispatch);
+    window.addEventListener("scroll", () => {
+      window.scrollY >= 20 ? setScroll(true) : setScroll(false);
+    });
+  }, []);
+
+  useEffect(async () => {
     if (cookieStatus) {
       const storage = JSON.parse(localStorage.getItem("loggedUser"));
       setLoggedUser(JSON.parse(localStorage.getItem("loggedUser")));
       dispatch(loginNativeUser(storage));
     }
-    window.addEventListener("scroll", () => {
-      window.scrollY >= 20 ? setScroll(true) : setScroll(false);
-    });
-  }, []);
+  }, [cookieStatus]);
 
   const logoutHandler = () => {
     cookieClear();
