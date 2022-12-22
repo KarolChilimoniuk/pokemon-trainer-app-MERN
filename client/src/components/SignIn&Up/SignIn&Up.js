@@ -23,6 +23,7 @@ const SignInUp = () => {
     if (cookieStatus) {
       const storage = localStorage.getItem("loggedUser");
       setLoggedUser(JSON.parse(storage));
+      dispatch(loginNativeUser(loggedUser));
     }
     window.addEventListener("scroll", () => {
       window.scrollY >= 20 ? setScroll(true) : setScroll(false);
