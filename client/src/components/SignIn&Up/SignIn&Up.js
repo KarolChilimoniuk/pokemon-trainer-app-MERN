@@ -46,7 +46,7 @@ const SignInUp = () => {
           </NavLink>
         </p>
       )}
-      <button onClick={() => console.log(usserData)}>click</button>
+      <button onClick={() => console.log(userData)}>click</button>
       {hasAccount === true && loginStatus === false && (
         <NavLink className={styles.link} to="/auth/signin">
           <span>Sign In</span>

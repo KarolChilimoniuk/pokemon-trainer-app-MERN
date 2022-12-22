@@ -24,6 +24,7 @@ app.use(
   cors({
     credentials: true,
     origin: `https://pokemontrainerappclient.onrender.com`,
+    // origin: `http://localhost:3000`,
   })
 );
 
