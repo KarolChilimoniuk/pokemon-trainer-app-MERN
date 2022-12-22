@@ -136,7 +136,6 @@ const newSession = async (req, res) => {
 };
 
 // validation for signIn
-
 const signInValidation = (data) => {
   const JoiSchema = Joi.object({
     email: Joi.string().required().label("E-mail"),
