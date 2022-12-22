@@ -18,6 +18,7 @@ export const newSess = async (dispatch) => {
   await instance
     .get(`${url}auth/newSession`)
     .then((res) => {
+      console.log(res.data);
       dispatch(newSession(res.data));
     })
     .catch((err) => console.log(err.message));

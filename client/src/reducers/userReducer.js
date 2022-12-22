@@ -68,7 +68,7 @@ const userReducer = (state = InitialState, action) => {
       return {
         ...state,
         logged: action.payloads.logged,
-        cookie: action.payloads.cookieStatus,
+        cookie: action.payloads.cookie,
       };
 
     default:
