@@ -122,8 +122,7 @@ const signInViaGoogle = async (req, res) => {
 const logout = async (req, res) => {
   try {
     const { token } = req.cookies;
-    // token && res.clearCookie("token").send({ message: "Cookie cleared" });
-    token && res.remove({ name: "token" }).send({ message: "Cookie cleared" });
+    token && res.clearCookie("token").send({ message: "Cookie cleared" });
   } catch (err) {
     res.status(500).send({ message: "Internal server error :(" });
   }
