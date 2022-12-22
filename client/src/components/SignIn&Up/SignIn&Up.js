@@ -10,17 +10,20 @@ const SignInUp = () => {
   const loginStatus = useSelector((state) => state.user.logged);
   const hasAccount = useSelector((state) => state.user.hasAccount);
   const userName = useSelector((state) => state.user.userName);
+  const cookieStatus = useSelector((state) => state.user.cookie);
   const dispatch = useDispatch();
 
-  const [loggedUser, setLoggedUser] = useState(
-    JSON.parse(localStorage.getItem("loggedUser"))
-  );
+  const [loggedUser, setLoggedUser] = useState(null);
   const [scrolled, setScroll] = useState(false);
 
   useEffect(() => {
+    let storage;
     console.log(loginStatus, hasAccount);
-    loggedUser !== (null || undefined) && dispatch(loginNativeUser(loggedUser));
-    setInterval(newSess(dispatch), 1000 * 60 * 40);
+    newSess(dispatch);
+    if (cookieStatus) {
+      const storage = localStorage.getItem("loggedUser");
+      setLoggedUser(JSON.parse(storage));
+    }
     window.addEventListener("scroll", () => {
       window.scrollY >= 20 ? setScroll(true) : setScroll(false);
     });
@@ -35,24 +38,28 @@ const SignInUp = () => {
     <div
       className={scrolled ? styles.scrolled__container : styles.link__container}
     >
-      {loginStatus === true && (
-        <p className={styles.paragraph}>
-          <NavLink className={styles.user__link} to="/loggedUser">
-            <img className={styles.image} src={PokemonTrainer} />
-            {userName}
-          </NavLink>
-        </p>
-      )}
+      {loginStatus === true &&
+        cookieStatus ===
+          true(
+            <p className={styles.paragraph}>
+              <NavLink className={styles.user__link} to="/loggedUser">
+                <img className={styles.image} src={PokemonTrainer} />
+                {userName}
+              </NavLink>
+            </p>
+          )}
       {hasAccount === true && loginStatus === false && (
         <NavLink className={styles.link} to="/auth/signin">
           <span>Sign In</span>
         </NavLink>
       )}
-      {loginStatus === true && (
-        <NavLink className={styles.link} onClick={logoutHandler} to="/">
-          <span>Logout</span>
-        </NavLink>
-      )}
+      {loginStatus === true &&
+        cookieStatus ===
+          true(
+            <NavLink className={styles.link} onClick={logoutHandler} to="/">
+              <span>Logout</span>
+            </NavLink>
+          )}
       {hasAccount === false && loginStatus === false && (
         <NavLink className={styles.link} to="/auth/signup">
           <span>Sign up</span>
