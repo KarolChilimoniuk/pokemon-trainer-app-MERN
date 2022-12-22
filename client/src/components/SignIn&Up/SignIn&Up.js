@@ -38,16 +38,14 @@ const SignInUp = () => {
     <div
       className={scrolled ? styles.scrolled__container : styles.link__container}
     >
-      {loginStatus === true &&
-        cookieStatus ===
-          true(
-            <p className={styles.paragraph}>
-              <NavLink className={styles.user__link} to="/loggedUser">
-                <img className={styles.image} src={PokemonTrainer} />
-                {userName}
-              </NavLink>
-            </p>
-          )}
+      {loginStatus === true && cookieStatus === true && (
+        <p className={styles.paragraph}>
+          <NavLink className={styles.user__link} to="/loggedUser">
+            <img className={styles.image} src={PokemonTrainer} />
+            {userName}
+          </NavLink>
+        </p>
+      )}
       {hasAccount === true && loginStatus === false && (
         <NavLink className={styles.link} to="/auth/signin">
           <span>Sign In</span>

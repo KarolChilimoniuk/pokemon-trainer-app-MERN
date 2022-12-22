@@ -5,8 +5,8 @@ import {
   newSession,
 } from "../actions/userActions.js";
 
-const url = "https://pokemontrainerapp.onrender.com/";
-// const url = "http://localhost:7000/";
+// const url = "https://pokemontrainerapp.onrender.com/";
+const url = "http://localhost:7000/";
 
 const instance = axios.create({
   baseUrl: url,
