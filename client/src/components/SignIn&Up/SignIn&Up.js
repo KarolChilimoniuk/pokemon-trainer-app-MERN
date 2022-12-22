@@ -7,6 +7,7 @@ import { loginNativeUser, logout } from "../../actions/userActions.js";
 import styles from "./SignInUp.module.css";
 
 const SignInUp = () => {
+  const userData = useSelector((state) => state.user);
   const loginStatus = useSelector((state) => state.user.logged);
   const hasAccount = useSelector((state) => state.user.hasAccount);
   const userName = useSelector((state) => state.user.userName);
@@ -16,10 +17,9 @@ const SignInUp = () => {
   const [loggedUser, setLoggedUser] = useState(null);
   const [scrolled, setScroll] = useState(false);
 
-  useEffect(() => {
-    let storage;
+  useEffect(async () => {
     console.log(loginStatus, hasAccount);
-    newSess(dispatch);
+    await newSess(dispatch);
     if (cookieStatus) {
       const storage = localStorage.getItem("loggedUser");
       setLoggedUser(JSON.parse(storage));
@@ -46,6 +46,7 @@ const SignInUp = () => {
           </NavLink>
         </p>
       )}
+      <button onClick={() => console.log(usserData)}>click</button>
       {hasAccount === true && loginStatus === false && (
         <NavLink className={styles.link} to="/auth/signin">
           <span>Sign In</span>
