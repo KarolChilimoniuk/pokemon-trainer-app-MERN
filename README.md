@@ -7,6 +7,8 @@ You don't have to register your account. You can use demo account to log in:
 **e-mail:** *xyz@wp.pl*
 **password:** *xyz*
 
+**** Note: All my projects were recently migrated from Heroku to Render and it may take approximately 45-120 seconds to spin up the servers once loaded ****
+
 ***
 ### Technologies and Tools 🏗
 In this project I practise using React library with backend based on node.js (REST API with database, cookie handling, authentication etc).
@@ -23,7 +25,7 @@ In this project I practise using React library with backend based on node.js (RE
 * uuid
 * cors
 * dotenv
-* heroku (for deployment - untill 28th November 2022)
+* heroku (for deployment - until 28th November 2022)
 * render (for new deployment)
 * redux with redux-thunk
 * react-google-login
