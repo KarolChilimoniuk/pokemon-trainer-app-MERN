@@ -35,5 +35,5 @@ In this project I practise using React library with backend based on node.js (RE
 ### How does it look? 👀
 ***
 Render deployment 
-[New app deployed on Render](https://pokemontrainerappclient.onrender.com/)
+[Click](https://pokemontrainerappclient.onrender.com/)
 ***
