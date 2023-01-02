@@ -34,9 +34,6 @@ In this project I practise using React library with backend based on node.js (RE
 ***
 ### How does it look? 👀
 ***
-Heroku deployment
-[Present app deployed on Heroku (until 28th November 2022)](https://pokemontrainerapp.herokuapp.com/)
-***
-New deployment 
+Render deployment 
 [New app deployed on Render](https://pokemontrainerappclient.onrender.com/)
 ***
