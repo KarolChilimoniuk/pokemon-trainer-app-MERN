@@ -7,7 +7,7 @@ You don't have to register your account. You can use demo account to log in:
 **e-mail:** *xyz@wp.pl*
 **password:** *xyz*
 
-***** App recently migrated from Heroku to Render and it may take approximately 45-120 seconds to spin up the servers once loaded *****
+*****App recently migrated from Heroku to Render and it may take approximately 45-120 seconds to spin up the servers once loaded*****
 
 ***
 ### Technologies and Tools 🏗
