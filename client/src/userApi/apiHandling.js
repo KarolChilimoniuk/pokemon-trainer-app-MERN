@@ -5,6 +5,7 @@ import {
   newSession,
 } from "../actions/userActions.js";
 
+// const url = 'https://pokemontrainerapp.herokuapp.com/';
 const url = "https://pokemontrainerapp.onrender.com/";
 // const url = "http://localhost:7000/";
 
@@ -18,27 +19,10 @@ export const newSess = async (dispatch) => {
   await instance
     .get(`${url}auth/newSession`)
     .then((res) => {
-      console.log(res.data);
+      console.log(res.data.tokenData);
       dispatch(newSession(res.data));
     })
-    .catch((err) => console.log(err.message));
-};
-
-export const signInByGoogle = async (userData, setError, history, dispatch) => {
-  await instance
-    .post(`${url}auth/signin/google`, {
-      email: userData.email,
-    })
-    .then((res) => {
-      setError(null);
-      dispatch(loginNativeUser(res.data.userData));
-      history.push("/");
-    })
-    .catch((err) => {
-      setError(err.response.data.message);
-      history.push("/auth/signin");
-      alert(err.response.data.message);
-    });
+    .catch((err) => console.error(err.message));
 };
 
 export const signIn = async (formData, setError, history, dispatch) => {
@@ -86,7 +70,7 @@ export const cookieClear = async () => {
       console.log("Cookie cleared");
     })
     .catch((err) => {
-      console.log(err.response.data.message);
+      console.error(err.response.data.message);
     });
 };
 
@@ -142,6 +126,6 @@ export const updateData = async (userId, dispatch) => {
       dispatch(updateUserData(res.data.userData));
     })
     .catch((err) => {
-      console.log(err.response.data.message);
+      console.error(err.response.data.message);
     });
 };

@@ -43,6 +43,17 @@ const validation = (data) => {
     })
       .required()
       .label("Password"),
+    confirmPassword: passwordJoiComplex({
+      min: 4,
+      max: 10,
+      lowerCase: 1,
+      upperCase: 1,
+      numeric: 1,
+      symbol: 1,
+      requirementCount: 4,
+    })
+      .required()
+      .label("Password"),
     email: Joi.string().email().required().label("E-mail"),
   });
   return JoiSchema.validate(data);
