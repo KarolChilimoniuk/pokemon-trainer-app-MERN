@@ -7,7 +7,7 @@ You don't have to register your account. You can use demo account to log in:
 **e-mail:** *xyz@wp.pl*
 **password:** *xyz*
 
-**** Note: All my projects were recently migrated from Heroku to Render and it may take approximately 45-120 seconds to spin up the servers once loaded ****
+*****App recently migrated from Heroku to Render and it may take approximately 45-120 seconds to spin up the servers once loaded*****
 
 ***
 ### Technologies and Tools 🏗
@@ -34,9 +34,6 @@ In this project I practise using React library with backend based on node.js (RE
 ***
 ### How does it look? 👀
 ***
-Heroku deployment
-[Present app deployed on Heroku (until 28th November 2022)](https://pokemontrainerapp.herokuapp.com/)
-***
-New deployment 
-[New app deployed on Render](https://pokemontrainerappclient.onrender.com/)
+Render deployment 
+[Click](https://pokemontrainerappclient.onrender.com/)
 ***
