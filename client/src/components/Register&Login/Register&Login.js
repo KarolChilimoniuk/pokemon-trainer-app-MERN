@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { havingAccount } from "../../actions/userActions.js";
 import { signIn, signUp } from "../../userApi/apiHandling.js";
-import googleIcon from "../../images/googleIcon.png";
 import styles from "./RegisterAndLogin.module.css";
 
 const RegisterAndLogin = () => {

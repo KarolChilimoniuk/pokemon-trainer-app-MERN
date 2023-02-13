@@ -17,6 +17,9 @@ const signUp = async (req, res) => {
     if (error) {
       res.status(400).send({ message: error.details[0].message });
     }
+    if (req.body.email === "") {
+      res.status(400).send({ message: `E-mail field is empty` });
+    }
     const user = await User.findOne({ email: req.body.email });
     if (user) {
       res.status(409).send({ message: "User with this email already exists." });
@@ -117,7 +120,6 @@ module.exports = {
   getUsers,
   signUp,
   signIn,
-  signInViaGoogle,
   logout,
   newSession,
 };

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { fetchPokemonList } from "./actions/pokemonActions.js";
+import { serverStart } from "./userApi/apiHandling.js";
 import SignInUp from "./components/SignIn&Up/SignIn&Up";
 import Nav from "./components/Navigation/Navigation";
 import Home from "./components/Home/Home";
@@ -18,6 +19,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchPokemonList());
+    serverStart();
   }, []);
 
   return (

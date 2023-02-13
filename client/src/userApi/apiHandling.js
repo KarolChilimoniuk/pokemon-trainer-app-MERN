@@ -24,6 +24,15 @@ export const newSess = async (dispatch) => {
     .catch((err) => console.log(err.message));
 };
 
+export const serverStart = async () => {
+  await instance
+    .get(url)
+    .then((res) => {
+      console.log("Server connection");
+    })
+    .catch((err) => console.error(err.message));
+};
+
 export const signInByGoogle = async (userData, setError, history, dispatch) => {
   await instance
     .post(`${url}auth/signin/google`, {
