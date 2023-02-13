@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { GoogleLogin } from "react-google-login";
 import { NavLink, useHistory } from "react-router-dom";
 import { havingAccount } from "../../actions/userActions.js";
-import { signInByGoogle, signIn, signUp } from "../../userApi/apiHandling.js";
+import { signIn, signUp } from "../../userApi/apiHandling.js";
 import googleIcon from "../../images/googleIcon.png";
 import styles from "./RegisterAndLogin.module.css";
 
@@ -11,7 +10,6 @@ const RegisterAndLogin = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const hasAccount = useSelector((state) => state.user.hasAccount);
-  const logged = useSelector((state) => state.user.logged);
   const initialFormState = {
     userName: "",
     email: "",
@@ -54,23 +52,6 @@ const RegisterAndLogin = () => {
     dispatch(havingAccount());
     setFormData(initialFormState);
     setError(null);
-  };
-
-  const googleResponseSuccess = async (res) => {
-    const profileData = res?.profileObj;
-    const userData = { ...profileData };
-    try {
-      signInByGoogle(userData, setError, history, dispatch);
-      setLoading(false);
-    } catch (err) {
-      console.log(err.message);
-    }
-  };
-
-  const googleResponseFailure = (err) => {
-    setLoading(false);
-    console.log(`Google authorization failed :(`);
-    console.log(err.message);
   };
 
   return (
@@ -122,25 +103,7 @@ const RegisterAndLogin = () => {
               value="Login"
             />
           </div>
-          <div onClick={() => setLoading(true)}>
-            <GoogleLogin
-              render={(renderProps) => (
-                <div className={styles.google__container}>
-                  <img src={googleIcon} className={styles.google__image} />
-                  <button
-                    onClick={renderProps.onClick}
-                    className={styles.google__button}
-                  >
-                    Sign in by Google
-                  </button>
-                </div>
-              )}
-              clientId="468618443782-ncpt0so89698t45tmg0511vs8olpfkn6.apps.googleusercontent.com"
-              onSuccess={googleResponseSuccess}
-              onFailure={googleResponseFailure}
-              cookiePolicy={"single_host_origin"}
-            />
-          </div>
+          <div onClick={() => setLoading(true)}></div>
         </form>
       ) : (
         <form styles={styles.form} onSubmit={signUpHandler}>

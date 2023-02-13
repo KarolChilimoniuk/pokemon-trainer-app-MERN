@@ -12,22 +12,6 @@ const InitialState = {
 
 const userReducer = (state = InitialState, action) => {
   switch (action.type) {
-    case "LOGIN_GOOGLE_USER":
-      localStorage.setItem(
-        "loggedUser",
-        JSON.stringify({ ...action.payloads })
-      );
-      return {
-        ...state,
-        hasAccount: true,
-        googleAccount: true,
-        userId: action.payloads.googleId,
-        userName: action.payloads.name,
-        email: action.payloads.email,
-        logged: action.payloads.logged,
-        cookie: true,
-      };
-
     case "LOGIN_NATIVE_USER_SUCCESS":
       localStorage.setItem(
         "loggedUser",

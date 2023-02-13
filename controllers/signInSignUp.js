@@ -87,38 +87,6 @@ const signIn = async (req, res) => {
   }
 };
 
-const signInViaGoogle = async (req, res) => {
-  try {
-    const user = await User.findOne({ email: req.body.email });
-    if (!user) {
-      return res.status(401).send({
-        message:
-          "You have to register your account with this email in this app",
-      });
-    }
-    const token = user.generateAuthToken(user._id, user.email);
-    res
-      .cookie("token", token, {
-        sameSite: "None",
-        maxAge: 7 * 24 * 60 * 60 * 1000,
-        secure: true,
-      })
-      .status(200)
-      .send({
-        message: "Log in succesfully",
-        userData: {
-          userId: user._id,
-          userName: user.userName,
-          email: user.email,
-          trainers: user.trainers,
-          logged: true,
-        },
-      });
-  } catch (err) {
-    res.status(500).send({ message: "Internal server error :(" });
-  }
-};
-
 const logout = async (req, res) => {
   try {
     const { token } = req.cookies;

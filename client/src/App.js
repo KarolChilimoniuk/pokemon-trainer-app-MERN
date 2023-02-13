@@ -7,13 +7,12 @@ import Nav from "./components/Navigation/Navigation";
 import Home from "./components/Home/Home";
 import PokeList from "./components/PokeList/PokeList";
 import Pokemon from "./components/Pokemon/Pokemon";
-import RegisterAndLogin from "./components/Register/Register&Login";
+import RegisterAndLogin from "./components/Register&Login/Register&Login";
 import User from "./components/User/User";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
 
 const App = () => {
-  const loading = useSelector((state) => state.monsters.isLoading);
   const monsterToShow = useSelector((state) => state.monsters.pokemonToDisplay);
   const dispatch = useDispatch();
 
