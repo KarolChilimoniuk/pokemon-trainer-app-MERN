@@ -15,6 +15,7 @@ const SignInUp = () => {
   const [scrolled, setScroll] = useState(false);
 
   useEffect(() => {
+    newSess(dispatch);
     window.addEventListener("scroll", () => {
       window.scrollY >= 20 ? setScroll(true) : setScroll(false);
     });

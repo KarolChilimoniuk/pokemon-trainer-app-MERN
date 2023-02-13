@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const Joi = require("joi");
+// const jwt_decode = require("jwt_decode");
 const { User, validation } = require("../models/user.js");
 
 const getUsers = async (req, res) => {
@@ -87,38 +88,6 @@ const signIn = async (req, res) => {
   }
 };
 
-const signInViaGoogle = async (req, res) => {
-  try {
-    const user = await User.findOne({ email: req.body.email });
-    if (!user) {
-      return res.status(401).send({
-        message:
-          "You have to register your account with this email in this app",
-      });
-    }
-    const token = user.generateAuthToken(user._id, user.email);
-    res
-      .cookie("token", token, {
-        sameSite: "None",
-        maxAge: 7 * 24 * 60 * 60 * 1000,
-        secure: true,
-      })
-      .status(200)
-      .send({
-        message: "Log in succesfully",
-        userData: {
-          userId: user._id,
-          userName: user.userName,
-          email: user.email,
-          trainers: user.trainers,
-          logged: true,
-        },
-      });
-  } catch (err) {
-    res.status(500).send({ message: "Internal server error :(" });
-  }
-};
-
 const logout = async (req, res) => {
   try {
     const { token } = req.cookies;
@@ -130,12 +99,14 @@ const logout = async (req, res) => {
 
 const newSession = async (req, res) => {
   const { token } = req.cookies;
-  !token
-    ? res.status(200).send({ cookie: false, logged: false })
-    : res.status(200).send({ cookie: true, logged: true });
+  !token && res.status(200).send({ cookie: false, logged: false });
+  token &&
+    token !== "" &&
+    res.status(200).send({ cookie: true, logged: true, tokenData: decode });
 };
 
 // validation for signIn
+
 const signInValidation = (data) => {
   const JoiSchema = Joi.object({
     email: Joi.string().required().label("E-mail"),
@@ -148,7 +119,6 @@ module.exports = {
   getUsers,
   signUp,
   signIn,
-  signInViaGoogle,
   logout,
   newSession,
 };
