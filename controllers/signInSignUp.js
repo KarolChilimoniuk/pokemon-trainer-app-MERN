@@ -17,6 +17,9 @@ const signUp = async (req, res) => {
     if (error) {
       res.status(400).send({ message: error.details[0].message });
     }
+    if (req.body.email === "") {
+      res.status(409).send({ message: "E-mail field is empty" });
+    }
     const user = await User.findOne({ email: req.body.email });
     if (user) {
       res.status(409).send({ message: "User with this email already exists." });
@@ -41,7 +44,7 @@ const signUp = async (req, res) => {
       }
     }
   } catch (err) {
-    res.status(500).send({ message: "Internal server error :(" });
+    console.log(err.message);
   }
 };
 
@@ -92,7 +95,7 @@ const logout = async (req, res) => {
     const { token } = req.cookies;
     token && res.clearCookie("token").send({ message: "Cookie cleared" });
   } catch (err) {
-    res.status(500).send({ message: "Internal server error :(" });
+    console.log(err.message);
   }
 };
 
