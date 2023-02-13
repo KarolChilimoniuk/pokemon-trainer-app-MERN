@@ -14,9 +14,14 @@ const getUsers = async (req, res) => {
 
 const signUp = async (req, res) => {
   try {
-    const { error } = validation(req.body);
+    const { error, email } = validation(req.body);
     if (error) {
       res.status(400).send({ message: error.details[0].message });
+    }
+    if (email === "") {
+      res.status(400).send({
+        message: `E-mail field is empty :(`,
+      });
     }
     const user = await User.findOne({ email: req.body.email });
     if (user) {

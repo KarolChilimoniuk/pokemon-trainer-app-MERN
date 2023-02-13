@@ -15,6 +15,15 @@ const instance = axios.create({
   credentials: "include",
 });
 
+export const serverStart = async () => {
+  await instance
+    .get(url)
+    .then((res) => {
+      console.log(`Server connection`);
+    })
+    .catch((err) => console.error(err.message));
+};
+
 export const newSess = async (dispatch) => {
   await instance
     .get(`${url}auth/newSession`)

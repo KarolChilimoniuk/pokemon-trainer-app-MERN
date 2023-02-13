@@ -17,26 +17,33 @@ const RegisterAndLogin = () => {
   };
   const [formData, setFormData] = useState(initialFormState);
   const [error, setError] = useState(null);
+  const [isLoading, setLoading] = useState(false);
 
   const changeHandler = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const signUpHandler = (e) => {
+  const signUpHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      signUp(formData, setError, history);
+      await signUp(formData, setError, history);
+      setLoading(false);
     } catch (err) {
-      console.error(err.message);
+      setLoading(false);
+      console.log(err.message);
     }
   };
 
-  const signInHandler = (e) => {
+  const signInHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      signIn(formData, setError, history, dispatch);
+      await signIn(formData, setError, history, dispatch);
+      setLoading(false);
     } catch (err) {
-      console.error(err.message);
+      setLoading(false);
+      console.log(err.message);
     }
   };
 
@@ -56,6 +63,13 @@ const RegisterAndLogin = () => {
       >
         {error !== null && error}
       </h4>
+      {isLoading === true && (
+        <p className={styles.loading__paragraph}>...Loading data</p>
+      )}
+      <p className={styles.example__paragraph}>
+        ***to log in you can use existing account: e-mail: xyz@wp.pl password:
+        xyz ***
+      </p>
       {hasAccount ? (
         <form styles={styles.register__form} onSubmit={signInHandler}>
           <div className={styles.input__container}>
