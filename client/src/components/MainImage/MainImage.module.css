@@ -1,9 +1,17 @@
 .mainImage__container {
+<<<<<<< HEAD
+=======
+  /* background-color: rgb(255,255,255); */
+>>>>>>> renderDeployment
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
   margin-top: 40px;
+<<<<<<< HEAD
   width: 100vw;
+=======
+  width: 90vw;
+>>>>>>> renderDeployment
   height: 50vh;
 }
 

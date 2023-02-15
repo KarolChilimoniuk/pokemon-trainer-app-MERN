@@ -102,6 +102,7 @@ const RegisterAndLogin = () => {
               value="Login"
             />
           </div>
+          <div onClick={() => setLoading(true)}></div>
         </form>
       ) : (
         <form styles={styles.form} onSubmit={signUpHandler}>

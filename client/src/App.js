@@ -10,7 +10,6 @@ import Pokemon from "./components/Pokemon/Pokemon";
 import RegisterAndLogin from "./components/Register&Login/Register&Login";
 import User from "./components/User/User";
 import Footer from "./components/Footer/Footer";
-import { serverStart } from "./userApi/apiHandling.js";
 import "./App.css";
 
 const App = () => {

@@ -12,9 +12,7 @@ require("dotenv").config({ path: "./.env" });
 const app = express();
 const port = process.env.PORT || 7000;
 
-console.log(process.env.FRONTEND_URI);
-
-//------Express-------
+//------Express-----
 
 app.use(bodyParser.json({ limit: "500mb" }));
 app.use(bodyParser.urlencoded({ limit: "500mb", extended: true }));
@@ -26,6 +24,10 @@ app.use(
   cors({
     credentials: true,
     origin: `https://pokemontrainerappclient.onrender.com`,
+<<<<<<< HEAD
+=======
+    // origin: `http://localhost:3000`,
+>>>>>>> renderDeployment
   })
 );
 

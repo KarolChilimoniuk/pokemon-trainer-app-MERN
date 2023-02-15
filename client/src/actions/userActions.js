@@ -1,10 +1,3 @@
-export const loginGoogleUser = (userData) => {
-  return {
-    type: "LOGIN_GOOGLE_USER",
-    payloads: userData,
-  };
-};
-
 export const loginNativeUserSuccess = (userData) => {
   return {
     type: "LOGIN_NATIVE_USER_SUCCESS",
