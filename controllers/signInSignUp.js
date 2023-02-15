@@ -1,6 +1,5 @@
 const bcrypt = require("bcryptjs");
 const Joi = require("joi");
-// const jwt_decode = require("jwt_decode");
 const { User, validation } = require("../models/user.js");
 
 const getUsers = async (req, res) => {
@@ -14,7 +13,7 @@ const getUsers = async (req, res) => {
 
 const signUp = async (req, res) => {
   try {
-    const { error, email } = validation(req.body);
+    const { error } = validation(req.body);
     if (error) {
       res.status(400).send({ message: error.details[0].message });
     }
@@ -102,10 +101,9 @@ const logout = async (req, res) => {
 
 const newSession = async (req, res) => {
   const { token } = req.cookies;
-  !token && res.status(200).send({ cookie: false, logged: false });
-  token &&
-    token !== "" &&
-    res.status(200).send({ cookie: true, logged: true, tokenData: decode });
+  !token
+    ? res.status(200).send({ cookie: false, logged: false })
+    : res.status(200).send({ cookie: true, logged: true });
 };
 
 // validation for signIn

@@ -18,7 +18,6 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchPokemonList());
-    serverStart();
   }, []);
 
   return (
