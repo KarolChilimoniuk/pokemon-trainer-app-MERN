@@ -4,9 +4,6 @@ import CrossImage from "../../images/cross.png";
 import styles from "./AddPokemonModal.module.css";
 
 const AddPokemonModal = ({ showModalState, showModalHandler }) => {
-  //    const [showHandler, newShowHandler] = useState(show);
-  //    const [modalStyles, newModalStyle] = useState(show ? styles.addPokemonModal__visible : styles.addPokemonModal__hidden);
-
   const [inputText, newInputText] = useState("");
   const [pokemonName, newPokemonName] = useState("");
 
