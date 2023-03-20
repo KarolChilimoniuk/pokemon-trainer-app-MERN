@@ -15,22 +15,21 @@ const signUp = async (req, res) => {
   try {
     const { error } = validation(req.body);
     if (error) {
-      res.status(400).send({ message: error.details[0].message });
-    }
-    if (req.body.email === "") {
-      res.status(409).send({ message: "E-mail field is empty" });
+      return res.status(400).send({ message: error.details[0].message });
     }
     const user = await User.findOne({ email: req.body.email });
     if (user) {
-      res.status(409).send({ message: "User with this email already exists." });
+      return res
+        .status(409)
+        .send({ message: "User with this email already exists." });
     } else {
       if (req.body.userName === "") {
-        res.status(400).send({ message: `Username field is empty` });
+        return res.status(400).send({ message: `Username field is empty` });
       } else if (
         req.body.password !== req.body.confirmPassword ||
         req.body.password === ""
       ) {
-        res.status(400).send({
+        return res.status(400).send({
           message: `Passwords aren't the same or password field is empty`,
         });
       } else {
@@ -40,7 +39,9 @@ const signUp = async (req, res) => {
           userName: req.body.userName,
           password: hashedPassword,
         });
-        res.status(201).send({ message: "User registered succesfully!" });
+        return res
+          .status(201)
+          .send({ message: "User registered succesfully!" });
       }
     }
   } catch (err) {
@@ -52,11 +53,11 @@ const signIn = async (req, res) => {
   try {
     const { error } = signInValidation(req.body);
     if (error) {
-      res.status(400).send({ message: error.details[0].message });
+      return res.status(400).send({ message: error.details[0].message });
     }
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
-      res
+      return res
         .status(401)
         .send({ message: "User with this email adress is not registered :(" });
     }
@@ -65,10 +66,10 @@ const signIn = async (req, res) => {
       user.password
     );
     if (!validatedPassword) {
-      res.status(401).send({ message: "Incorrect password" });
+      return res.status(401).send({ message: "Incorrect password" });
     }
     const token = await user.generateAuthToken(user._id, user.email);
-    res
+    return res
       .cookie("token", token, {
         sameSite: "None",
         maxAge: 7 * 24 * 60 * 60 * 1000,

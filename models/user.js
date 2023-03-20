@@ -53,7 +53,7 @@ const validation = (data) => {
       requirementCount: 4,
     })
       .required()
-      .label("Password"),
+      .label("Confirm password"),
     email: Joi.string().email().required().label("E-mail"),
   });
   return JoiSchema.validate(data);

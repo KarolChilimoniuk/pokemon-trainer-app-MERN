@@ -214,7 +214,7 @@ const PokemonForm = () => {
             className={styles.radio__input}
             type="radio"
             name="types"
-            value="normal"
+            value="poison"
             onChange={(e) => {
               newFilterValue(e.target.value);
             }}
@@ -226,12 +226,12 @@ const PokemonForm = () => {
             className={styles.radio__input}
             type="radio"
             name="types"
-            value="physic"
+            value="psychic"
             onChange={(e) => {
               newFilterValue(e.target.value);
             }}
           />
-          <label className={styles.radio__label}>physic</label>
+          <label className={styles.radio__label}>psychic</label>
         </div>
         <div className={styles.radio__container}>
           <input
