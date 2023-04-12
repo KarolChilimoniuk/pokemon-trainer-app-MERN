@@ -9,7 +9,6 @@ You don't have to register your account. You can use demo account to log in:
 
 *****IMPORTANT: App migrated from Heroku to Render and it may take approximately 45-120 seconds to spin up the servers once loaded*****
 
-***
 ### Technologies and Tools 🏗
 In this project I practise using React library with backend based on node.js (REST API with database, cookie handling, authentication etc).
 
@@ -33,6 +32,6 @@ In this project I practise using React library with backend based on node.js (RE
 * Visual Studio Code
 
 ### How does it look? 👀 [Check out app](https://pokemontrainerappclient.onrender.com/)
-*** 
+
 ![screenshot](https://github.com/KarolChilimoniuk/pokemon-trainer-app-MERN/blob/master/client/src/images/pokemonscreen1.png)
 ![screenshot](https://github.com/KarolChilimoniuk/pokemon-trainer-app-MERN/blob/master/client/src/images/pokemonscreen2.png)
