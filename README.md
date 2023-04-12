@@ -32,7 +32,7 @@ In this project I practise using React library with backend based on node.js (RE
 * cookies
 * Visual Studio Code
 
-### How does it look? 👀 [Click](https://pokemontrainerappclient.onrender.com/)
+### How does it look? 👀 [Check out app](https://pokemontrainerappclient.onrender.com/)
 *** 
 ![screenshot](https://github.com/KarolChilimoniuk/pokemon-trainer-app-MERN/blob/master/client/src/images/pokemonscreen1.png)
 ![screenshot](https://github.com/KarolChilimoniuk/pokemon-trainer-app-MERN/blob/master/client/src/images/pokemonscreen2.png)
